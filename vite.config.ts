@@ -1,9 +1,9 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [react()],
-  base: './',
+  base: mode === 'production' ? '/FluxRate_LandingPage/' : '/',
   resolve: {
     alias: {
       '@': '/src',
@@ -14,4 +14,4 @@ export default defineConfig({
     setupFiles: './src/tests/setup.ts',
     globals: true,
   },
-});
+}));
